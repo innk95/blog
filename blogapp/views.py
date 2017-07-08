@@ -7,3 +7,6 @@ from django.shortcuts import render
 # Create your views here.
 def index(request):
     return HttpResponse('Стартовая страница')
+
+def detail (request, header_id):
+    return HttpResponse('Ты смотришь запись под номером %s.' % header_id)
