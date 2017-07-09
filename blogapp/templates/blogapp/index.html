@@ -18,8 +18,8 @@
 -->
 	<link rel="stylesheet" href="{%static 'blogapp/css/bootstrap.min.css' %}">
 	<link rel="stylesheet" href="{%static 'blogapp/css/animate.min.css' %}">
-	<link rel="stylesheet" href="{%static 'blogapp/css/font-awesome.min.css' %}">
    	<link rel="stylesheet" href="{%static 'blogapp/css/owl.theme.css' %}">
+	<link rel="stylesheet" href="{%static 'blogapp/css/font-awesome.min.css' %}">
 	<link rel="stylesheet" href="{%static 'blogapp/css/owl.carousel.css' %}">
 	<link rel="stylesheet" href="{%static 'blogapp/css/style.css' %}">
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -77,45 +77,36 @@
 
 <!-- about section
 ================================================== -->
+{% if latest_post_list %}
 <section id="about" class="paralla-section">
 	<div class="container">
+
+
+		{% for post in latest_post_list %} <!-- Для нечетных постов -->
+
 		<div class="row">
         
-			<div class="col-md-6 col-sm-12">
+			<div class="col-md-6 col-sm-12 {% if post.id|divisibleby:2 %} right_block {% endif %}">
 				<img src="{%static 'blogapp/images/about-img-1.jpg' %}" class="img-responsive">
 			</div>
             
 			<div class="col-md-6 col-sm-12">
 				<div class="about-des">
-					<h4>The most active lifestyle</h4>
-					<h3>Living in MODERN TOWN</h3>
+					<h4>{{post.id}}</h4>
+					<a href=""><h3>{{ post.header }}</h3></a>
 					<p>This is new HTML5 template that is easy to modify and apply for any kind of your website. This layout is based on Bootstrap v3.3.5 responsive framework. Visit <a rel="nofollow" href="http://www.tooplate.com" target="_parent">Tooplate</a> for more website themes or templates. Credits go to <a rel="nofollow" href="http://unsplash.com" target="_parent">Unsplash</a> and <a rel="nofollow" href="http://pixabay.com" target="_parent">Pixabay</a> for images. Lorem ipsum dolor sit amet, maecenas eget vestibulum.</p>
 				</div>
 			</div>
 
 		</div>
-        
-        <div class="row">
-
-			
-			<div class="col-md-6 col-sm-12">
-				<div class="about-des">
-					<h4>New Community Mall</h4>
-					<h3>Going to the NEXT Level</h3>
-					<p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet, wisi risus purus augue vulputate voluptate neque, curabitur dolor libero sodales vitae elit massa. Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet, wisi risus purus augue vulputate voluptate neque, curabitur dolor libero sodales vitae elit massa.</p>
-				</div>
-			</div>
-            
-            <div class="col-md-6 col-sm-12">
-				<img src="{%static 'blogapp/images/about-img-2.jpg' %}" class="img-responsive" >
-			</div>
-
-		</div>
-
+		{% endfor %}
 
 
 	</div>
 </section>
+
+
+{% endif %}
 
 
 

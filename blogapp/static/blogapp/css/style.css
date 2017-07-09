@@ -453,3 +453,11 @@ footer a:hover {
     font-size: 9px;
   }
 }
+
+.left_block {
+float: left;
+}
+
+.right_block {
+float: right;
+}
