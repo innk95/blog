@@ -6,8 +6,9 @@ from django.db import models
 # Create your models here.
 class Post(models.Model):
     header = models.CharField(max_length=20)
-    post_text = models.CharField(max_length=300)
+    post_text = models.CharField(max_length=1000)
     post_pub_date = models.DateTimeField('date published')
+    image_url = models.CharField(max_length=200, default='/static/blogapp/downloads/default.png')
 
 
 class Comment(models.Model):

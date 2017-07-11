@@ -38,7 +38,7 @@
 				<h3 class="wow fadeInDown" data-wow-delay="0.2s">The first project</h3>
 				<h1 class="wow fadeInDown">BIG CITY BLOG</h1>
 				<a href="#about" class="btn btn-default smoothScroll wow fadeInUp" data-wow-delay="0.6s">READ POSTS</a>
-
+				<a href="#" class="btn btn-danger wow fadeInUp" data-wow-delay="0.4s">WRITE POST</a>
 			</div>
 
 		</div>
@@ -87,14 +87,14 @@
 		<div class="row">
         
 			<div class="col-md-6 col-sm-12 {% if post.id|divisibleby:2 %} right_block {% endif %}">
-				<img src="{%static 'blogapp/images/about-img-1.jpg' %}" class="img-responsive">
+				<img src="{{post.image_url}}" class="img-responsive ">
 			</div>
             
 			<div class="col-md-6 col-sm-12">
 				<div class="about-des">
-					<h4>{{post.id}}</h4>
+					<h4>{{post.post_pub_date}}</h4>
 					<a href=""><h3>{{ post.header }}</h3></a>
-					<p>This is new HTML5 template that is easy to modify and apply for any kind of your website. This layout is based on Bootstrap v3.3.5 responsive framework. Visit <a rel="nofollow" href="http://www.tooplate.com" target="_parent">Tooplate</a> for more website themes or templates. Credits go to <a rel="nofollow" href="http://unsplash.com" target="_parent">Unsplash</a> and <a rel="nofollow" href="http://pixabay.com" target="_parent">Pixabay</a> for images. Lorem ipsum dolor sit amet, maecenas eget vestibulum.</p>
+					<p>{{post.post_text}}</p>
 				</div>
 			</div>
 

@@ -13,7 +13,7 @@ def index(request):
     return render(request, 'blogapp/index.html', context)
 
 
-def detail (request, header_id):
-    return HttpResponse('Ты смотришь запись под номером %s.' % header_id)
+def detail (request, post_id):
+    return HttpResponse('Ты смотришь запись под номером %s.' % post_id)
 
 
