@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django.http import HttpResponse
 
 
+
 from django.shortcuts import render
 from .models import Post, Comment
 
@@ -14,6 +15,16 @@ def index(request):
 
 
 def detail (request, post_id):
-    return HttpResponse('Ты смотришь запись под номером %s.' % post_id)
+    post_list = Post.objects.all()
+    post_take = int(post_id)
+    context = {'post_take' : post_take, 'post_list' : post_list}
+    return render(request, 'blogapp/post.html', context)
+
+def writepost (request):
+    return render(request, 'blogapp/write_post.html')
+
+def post_new(request):
+    return render(request, 'blogapp/post_edit.html')
+
 
 

@@ -461,3 +461,7 @@ float: left;
 .right_block {
 float: right;
 }
+
+#write_submit {
+background: white;
+}

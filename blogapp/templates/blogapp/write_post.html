@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	{% load static %}
+
+
+	<meta charset="utf-8">
+	<title>Big Town Blog (test)</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+<!--
+
+
+
+-->
+	<link rel="stylesheet" href="{%static 'blogapp/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{%static 'blogapp/css/animate.min.css' %}">
+   	<link rel="stylesheet" href="{%static 'blogapp/css/owl.theme.css' %}">
+	<link rel="stylesheet" href="{%static 'blogapp/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{%static 'blogapp/css/owl.carousel.css' %}">
+	<link rel="stylesheet" href="{%static 'blogapp/css/style.css' %}">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+
+
+<!-- Navigation section
+================================================== -->
+<section class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+			</button>
+			<a href="#" class="navbar-brand">BIG CITY BLOG</a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right main-navigation">
+				<li><a href="../" class="smoothScroll">HOME</a></li>
+				<li><a href="../#about" class="smoothScroll">BLOG</a></li>
+				<li><a href="../#contact" class="smoothScroll">CONTACT</a></li>
+
+					<li><a href="#" class="btn btn-primary">LOG IN</a></li>
+					<li><a href="#" class="btn btn-success">SIGN UP</a></li>
+
+			</ul>
+		</div>
+
+	</div>
+</section>
+<br><br><br>
+
+<!-- Contact section
+
+================================================== -->
+<div id="test">
+<section id="contact" class="parallax-section">
+	<div class="container">
+		<div class="row">
+
+			<!-- Contact form section
+			================================================== -->
+            <div class="col-md-3 col-sm-6 wow fadeInDown" data-wow-delay="0.6s"> </div>
+			<div class="col-md-6 col-sm-6 wow fadeInDown" data-wow-delay="0.6s">
+				<form action="#" method="post">
+					<div class="col-md-12 col-sm-12">
+
+						<input method='POST' type="text" class="form-control" placeholder="Заголовок" name="name" id="write_header">
+						<input method='POST' type="text" class="form-control" placeholder="URL картинки" name="name" id="write_url">
+                        <textarea method='POST' name="message" rows="8" class="form-control" id="write_message" placeholder="Текст" message="message"></textarea>
+					</div>
+					<div class="col-md-12 col-sm-12">
+
+                        <input type="submit" class="form-control" href="#" id="write_submit" value="SEND POST">
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</section>
+</div>
+
+<!-- Javascript
+================================================== -->
+<script src="{%static 'blogapp/js/jquery.js' %}"></script>
+<script src="{%static 'blogapp/js/bootstrap.min.js' %}"></script>
+<script src="{%static 'blogapp/js/smoothscroll.js' %}"></script>
+<script src="{%static 'blogapp/js/jquery.nav.js' %}"></script>
+<script src="{%static 'blogapp/js/jquery.parallax.js' %}"></script>
+<script src="{%static 'blogapp/js/owl.carousel.min.js' %}"></script>
+<script src="{%static 'blogapp/js/isotope.min.js' %}"></script>
+<script src="{%static 'blogapp/js/wow.min.js' %}"></script>
+<script src="{%static 'blogapp/js/counter.js' %}"></script>
+<script src="{%static 'blogapp/js/custom.js' %}"></script>
+
+</body>
+</html>
