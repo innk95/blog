@@ -16,3 +16,5 @@ class Comment(models.Model):
     comment_pub_date = models.DateTimeField('date comment published')
 
 
+
+
