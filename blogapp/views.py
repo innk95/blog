@@ -13,7 +13,6 @@ def index(request):
     context = {'latest_post_list' : latest_post_list}
     return render(request, 'blogapp/index.html', context)
 
-
 def detail (request, post_id):
     post_list = Post.objects.all()
     post_take = int(post_id)
@@ -25,6 +24,11 @@ def writepost (request):
 
 def post_new(request):
     return render(request, 'blogapp/post_edit.html')
+
+def sign_up (request):
+    return render(request, 'blogapp/sign_up.html')
+
+
 
 
 

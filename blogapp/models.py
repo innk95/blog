@@ -14,3 +14,5 @@ class Post(models.Model):
 class Comment(models.Model):
     comment_text = models.CharField(max_length=50)
     comment_pub_date = models.DateTimeField('date comment published')
+
+
