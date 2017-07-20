@@ -4,8 +4,8 @@ from django.http import HttpResponse
 
 
 
-from django.shortcuts import render
-from .models import Post, Comment
+from django.shortcuts import render, redirect
+from .models import Post
 
 # Create your views here.
 def index(request):
@@ -25,6 +25,9 @@ def writepost (request):
 
 def post_new(request):
     return render(request, 'blogapp/post_edit.html')
+
+def login_redirect(request):
+    return redirect('/blogapp/')
 
 
 
