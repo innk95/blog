@@ -6,6 +6,8 @@ from django.http import HttpResponse
 
 from django.shortcuts import render, redirect
 from .models import Post
+from django.contrib.auth.forms import UserCreationForm
+
 
 # Create your views here.
 def index(request):
@@ -26,8 +28,20 @@ def writepost (request):
 def post_new(request):
     return render(request, 'blogapp/post_edit.html')
 
-def login_redirect(request):
-    return redirect('/blogapp/')
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('../')
+    else:
+        form = UserCreationForm()
+        return render(request, 'blogapp/reg_form.html', {'form': form})
+
+
+
+
+
 
 
 
