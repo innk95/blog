@@ -2,8 +2,6 @@
 from __future__ import unicode_literals
 from django.http import HttpResponse
 
-
-
 from django.shortcuts import render, redirect
 from .models import Post
 from django.contrib.auth.forms import UserCreationForm
@@ -14,7 +12,6 @@ def index(request):
     latest_post_list = Post.objects.order_by('-post_pub_date')[:10]
     context = {'latest_post_list' : latest_post_list}
     return render(request, 'blogapp/index.html', context)
-
 
 def detail (request, post_id):
     post_list = Post.objects.all()
