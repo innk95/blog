@@ -465,3 +465,8 @@ float: right;
 #write_submit {
 background: white;
 }
+
+#base {
+background: url('../images/register.jpg');
+}
+

@@ -12,8 +12,4 @@ urlpatterns = [
     url(r'^logout/$', logout, {'template_name' : 'blogapp/logout.html'}),
     url(r'^register/$', views.register, name='register'),
 
-
-
-
-
 ]
