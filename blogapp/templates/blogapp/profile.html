@@ -1,0 +1,29 @@
+{% extends 'blogapp/base.html' %}
+{% block content %}
+
+<section id="profile" class="parallax-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-sm-6 wow fadeInUp register_form" data-wow-delay="0.9s">
+				<div class="profile-detail">
+					<h2>Profile</h2>
+							<h4>User: {{user}}</h4>
+							<br>
+							<h4>Email: {{user.email}}</h4>
+							<br>
+							<h4>First name: {{user.first_name}}</h4>
+							<br>
+							<h4>Last name: {{user.last_name}}</h4>
+							<br>
+							<a href="/blogapp/profile/edit" class="btn btn-success" style="width:30%;">Edit</a>
+							<a href="/blogapp/profile/change-password" class="btn btn-primary" style="width:30%; margin-left:15%;">Password</a>
+
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+{% endblock content %}

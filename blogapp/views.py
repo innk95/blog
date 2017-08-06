@@ -4,7 +4,10 @@ from django.http import HttpResponse
 
 from django.shortcuts import render, redirect
 from .models import Post
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
+from django.contrib.auth.models import User
+from .forms import RegistrationForm, EditProfileForm
+from django.contrib.auth import update_session_auth_hash
 
 
 # Create your views here.
@@ -27,13 +30,52 @@ def post_new(request):
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('../')
     else:
-        form = UserCreationForm()
+        form = RegistrationForm()
         return render(request, 'blogapp/reg_form.html', {'form': form})
+
+
+def profile(request):
+    context = {'user': request.user}
+    return render(request, 'blogapp/profile.html', context)
+
+def profile_edit(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=request.user)
+
+        if form.is_valid():
+            form.save()
+            return redirect('/blogapp/profile')
+
+    else:
+        form = EditProfileForm(instance=request.user)
+
+        context = {'form':form}
+        return render(request, 'blogapp/edit_profile.html', context)
+
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(data=request.POST, user=request.user)
+
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            return redirect('/blogapp/profile')
+
+    else:
+        form = PasswordChangeForm(user = request.user)
+        context = {'form': form}
+        return render(request, 'blogapp/change_password.html', context)
+
+
+
+
+
 
 
 

@@ -5,7 +5,7 @@
 	{% load static %}
 
 	<meta charset="utf-8">
-	<title>Big Town Blog (test)</title>
+	<title>Big Town Blog</title>
 
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,6 +49,7 @@
 
 <!-- Navigation section
 ================================================== -->
+{% if user.is_authenticated %}
 <section class="navbar navbar-default navbar-fixed-top sticky-navigation" role="navigation">
 	<div class="container">
 
@@ -58,24 +59,47 @@
 				<span class="icon icon-bar"></span>
 				<span class="icon icon-bar"></span>
 			</button>
-			<a href="#" class="navbar-brand">BIG CITY BLOG</a>
+			<a href="/blogapp/profile/" class="navbar-brand">{{user}} profile</a>
 		</div>
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right main-navigation">
-				<li><a href="../" class="smoothScroll">HOME</a></li>
-				<li><a href="../#about" class="smoothScroll">BLOG</a></li>
-				<li><a href="../#contact" class="smoothScroll">CONTACT</a></li>
-					<li><a href="register" class="btn btn-success">SING UP</a></li>
-					<li><a href="login" class="btn btn-primary">LOG IN</a></li>
+				<li><a href="#home" class="smoothScroll">HOME</a></li>
+				<li><a href="#about" class="smoothScroll">BLOG</a></li>
+				<li><a href="#contact" class="smoothScroll">CONTACT</a></li>
 					<li><a href="logout" class="btn btn-danger">LOG OUT</a></li>
-
-
-
 			</ul>
 		</div>
 
 	</div>
 </section>
+
+{% else %}
+
+<section class="navbar navbar-default navbar-fixed-top sticky-navigation" role="navigation">
+	<div class="container">
+
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+			</button>
+			<a href="#home" class="navbar-brand">BIG CITY BLOG</a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right main-navigation">
+				<li><a href="#home" class="smoothScroll">HOME</a></li>
+				<li><a href="#about" class="smoothScroll">BLOG</a></li>
+				<li><a href="#contact" class="smoothScroll">CONTACT</a></li>
+					<li><a href="register" class="btn btn-success">SING UP</a></li>
+					<li><a href="/blogapp/login" class="btn btn-primary">LOG IN</a></li>
+			</ul>
+		</div>
+
+	</div>
+</section>
+{% endif %}
+
 
 
 <!-- about section

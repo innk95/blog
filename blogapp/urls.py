@@ -11,5 +11,8 @@ urlpatterns = [
     url(r'^login/$', login, {'template_name' : 'blogapp/login.html'}),
     url(r'^logout/$', logout, {'template_name' : 'blogapp/logout.html'}),
     url(r'^register/$', views.register, name='register'),
+    url(r'^profile/$', views.profile, name='profile'),
+    url(r'^profile/edit/$', views.profile_edit, name='profile_edit'),
+    url(r'^profile/change-password/$', views.change_password, name='change_password'),
 
 ]

@@ -1,0 +1,29 @@
+{% extends 'blogapp/base.html' %}
+{% block content %}
+
+<section id="profile" class="parallax-section">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-5 col-sm-5 wow fadeInUp register_form" data-wow-delay="0.9s">
+				<div class="profile-detail">
+					<h2>Edit profile</h2>
+                        <form method="POST">
+                         {% csrf_token %}
+                        {{ form.as_p }}
+                         <button method="submit" class="btn btn-success" style="width: 30%;">Send</button>
+                            <br>
+                            <br>
+                            <h4>Do you want change password?</h4>
+                            <a href="/blogapp/profile/change-password" class="btn btn-primary" style="width:30%;">Change</a>
+
+
+				        </form>
+                </div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+{% endblock content %}

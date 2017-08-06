@@ -1,13 +1,26 @@
 {% extends 'blogapp/base.html' %}
 {% block content %}
-<div class="container">
-    <h2>LOGIN</h2>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">LOGIN</button>
-    </form>
-</div>
+
+<section id="profile" class="parallax-section">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-5 col-sm-5 wow fadeInUp register_form" data-wow-delay="0.9s">
+				<div class="profile-detail">
+					<h2>Login</h2>
+                    <form method="post">
+                     {% csrf_token %}
+                    {{ form.as_p }}
+                        <button method="submit" class="btn btn-primary" style="width: 30%;">Send</button>
+                        <br><br>
+                        <h4>Dont have account?</h4>
+                        <a href="/blogapp/register" class="btn btn-success" style="width:30%;">SING UP</a>
+				</form>
+                </div>
+			</div>
+
+		</div>
+	</div>
+</section>
 
 {% endblock content %}
-
