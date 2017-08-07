@@ -180,10 +180,8 @@
 			<div class="col-md-6 col-sm-6 wow fadeInDown" data-wow-delay="0.6s">
 				<form action="#" method="post">
 					<div class="col-md-12 col-sm-12">
-						<input type="text" class="form-control" placeholder="Name" name="name" id="name">
-						<input type="email" class="form-control" placeholder="Email" name="email" id="email">
-                        <input type="text" class="form-control" placeholder="Subject" name="subject">
-                        <textarea name="message" rows="8" class="form-control" id="message" placeholder="Message" message="message"></textarea>
+						{% csrf_token %}
+
 					</div>
 					<div class="col-md-6 col-sm-6">
 						<input name="submit" type="submit" class="form-control" id="submit" value="Send a message">
