@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from .models import Post
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -35,6 +36,33 @@ class EditProfileForm(UserChangeForm):
             'first_name',
             'last_name',
             'password',
+        }
+
+class WritePostForm(forms.ModelForm):
+    header = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'class': 'form-control'
+        }
+    ))
+
+    image_url = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'class': 'form-control'
+        }
+    ))
+
+    post_text = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'class': 'form-control'
+        }
+    ))
+
+    class Meta:
+        model = Post
+        fields = {
+            'image_url',
+            'header',
+            'post_text',
         }
 
     

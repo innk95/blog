@@ -1,33 +1,25 @@
 {% extends 'blogapp/base.html' %}
-	{% block content %}
-<!-- Contact section
-================================================== -->
-<div id="test">
-<section id="contact" class="parallax-section">
+{% block content %}
+
+<section id="writepost" class="parallax-section">
 	<div class="container">
 		<div class="row">
 
-			<!-- Contact form section
-			================================================== -->
-            <div class="col-md-3 col-sm-6 wow fadeInDown" data-wow-delay="0.6s"> </div>
-			<div class="col-md-6 col-sm-6 wow fadeInDown" data-wow-delay="0.6s">
-				<form action="#" method="post">
-					<div class="col-md-12 col-sm-12">
-
-						<input method='POST' type="text" class="form-control" placeholder="Заголовок" name="name" id="write_header">
-						<input method='POST' type="text" class="form-control" placeholder="URL картинки" name="name" id="write_url">
-                        <textarea method='POST' name="message" rows="8" class="form-control" id="write_message" placeholder="Текст" message="message"></textarea>
-					</div>
-					<div class="col-md-12 col-sm-12">
-
+			<div class="col-md-8 col-sm-8 wow fadeInUp register_form" data-wow-delay="0.9s">
+				<div class="writepost-detail">
+					<h2 style="color:white">Write post</h2>
+                    <form method="post" style="color: white;">
+                     {% csrf_token %}
+                    {{ form.as_p }}
                         <input type="submit" class="form-control" href="#" id="write_submit" value="SEND POST">
-					</div>
 				</form>
+                </div>
 			</div>
 
 		</div>
 	</div>
 </section>
-</div>
 
 {% endblock content %}
+
+<input type="submit" class="form-control" href="#" id="write_submit" value="SEND POST">

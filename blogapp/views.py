@@ -6,8 +6,10 @@ from django.shortcuts import render, redirect
 from .models import Post
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.models import User
-from .forms import RegistrationForm, EditProfileForm
+from .forms import RegistrationForm, EditProfileForm, WritePostForm
 from django.contrib.auth import update_session_auth_hash
+from django.views.generic import TemplateView
+from django.utils import timezone
 
 
 # Create your views here.
@@ -17,6 +19,7 @@ def index(request):
     return render(request, 'blogapp/index.html', context)
 
 
+
 def detail(request, post_id):
     post_list = Post.objects.all()
     post_take = int(post_id)
@@ -24,8 +27,26 @@ def detail(request, post_id):
     return render(request, 'blogapp/post.html', context)
 
 
-def writepost(request):
-    return render(request, 'blogapp/write_post.html')
+class WritePostView(TemplateView):
+    template_name = 'blogapp/write_post.html'
+
+    def get(self, request):
+        form = WritePostForm()
+        return render (request, self.template_name, {'form' : form})
+
+    def post(self, request):
+        form = WritePostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user
+            header = form.cleaned_data['header']
+            post_text = form.cleaned_data['post_text']
+            image_url = form.cleaned_data['image_url']
+            post.post_pub_date = timezone.now()
+            post.save()
+            context = {'form':form, 'header': header, 'post_text': post_text, 'image_url': image_url}
+            return redirect('/blogapp/#about')
+
 
 
 def post_new(request):
