@@ -6,12 +6,13 @@
 <section id="profile" class="parallax-section">
 	<div class="container">
 
-
+			<form method="post">
 				<div class="profile-detail">
 					<h2>Register</h2>
         {% csrf_token %}
         {{ form.as_p }}
                     <button method="submit" class="btn btn-primary" style="width:30%">Submit</button>
+					</form>
 				</div>
 			</div>
 

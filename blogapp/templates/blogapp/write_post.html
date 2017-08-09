@@ -10,7 +10,9 @@
 					<h2 style="color:white">Write post</h2>
                     <form method="post" style="color: white;">
                      {% csrf_token %}
-                    {{ form.as_p }}
+                    {{ form.image_url }}
+                    {{ form.header }}
+                    {{ form.post_text }}</p>
                         <input type="submit" class="form-control" href="#" id="write_submit" value="SEND POST">
 				</form>
                 </div>

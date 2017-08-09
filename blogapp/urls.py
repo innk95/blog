@@ -14,6 +14,9 @@ urlpatterns = [
     url(r'^register/$', views.register, name='register'),
     url(r'^profile/$', views.profile, name='profile'),
     url(r'^thanks/$', views.thanks, name='thanks'),
+    url(r'^wrong-register/$', views.wrong_register, name='wrong_register'),
+    url(r'^wrong-post/$', views.wrong_post, name='wrong_post'),
+    url(r'^wrong-email/$', views.wrong_email, name='wrong_email'),
     url(r'^profile/edit/$', views.profile_edit, name='profile_edit'),
     url(r'^profile/change-password/$', views.change_password, name='change_password'),
 

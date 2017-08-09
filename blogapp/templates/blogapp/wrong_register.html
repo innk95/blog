@@ -1,0 +1,37 @@
+{% extends 'blogapp/base.html' %}
+{% block content %}
+
+<section id="wrong" class="parallax-section">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-8 col-sm-8 wow fadeInUp register_form" data-wow-delay="0.9s">
+				<div class="wrong-detail">
+					<h2>Incorrect Information!</h2>
+                    <br>
+					<br>
+					<div style="color:white">
+						<ul>
+							<li>Your password can't be too similar to your other personal information.</li>
+							<li>Your password must contain at least 8 characters.</li>
+							<li>Your password can't be a commonly used password.</li>
+							<li>Your password can't be entirely numeric.</li>
+						</ul>
+					</div>
+
+
+                    <a href="/blogapp/register" class="btn btn-success" style="width">Again</a>
+                </div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+{% endblock content %}
+
+
+Your password can't be too similar to your other personal information.
+Your password must contain at least 8 characters.
+Your password can't be a commonly used password.
+Your password can't be entirely numeric.

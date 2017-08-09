@@ -90,17 +90,16 @@ class WriteEmailForm(forms.ModelForm):
         attrs={
             'class': 'form-control',
             'id': 'message',
-            'rows': 8,
+            'rows': '8',
         }
     ))
-
     class Meta:
         model = MyEmail
         fields={
             'name',
             'email',
             'subject',
-            'message'
+            'message',
         }
 
 

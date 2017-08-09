@@ -1,4 +1,4 @@
-#writepost .form-control {
+#wrong .form-control {
   background: transparent;
   border-color: #ffffff;
   color: #ffffff;
@@ -10,7 +10,7 @@
   height: auto;
 }
 
-#writepost input[type="submit"] {
+#wrong input[type="submit"] {
   background: #000000;
   border:none;
   border-radius: 4px;
@@ -20,7 +20,7 @@
   margin-top: 10px;
 }
 
-#writepost input[type="submit"]:hover {
+#wrong input[type="submit"]:hover {
   background: #ffa400;
 
 }
@@ -36,13 +36,13 @@
   color: #ffffff;
 }
 
-#writepost .writepost-detail {
-  background: rgba(0,0,0,0.75);
+#wrong .wrong-detail {
+  background: rgba(255,255,255,0.75);
   padding: 34px 10px 34px 60px;
 }
 
 
-#writepost .writepost-detail div {
+#wrong .wrong-detail div {
   padding-bottom: 10px;
 
 }

@@ -592,3 +592,52 @@ left: 17%;
 
 }
 
+#wrong .form-control {
+  background: transparent;
+  border-color: #ffffff;
+  color: #ffffff;
+  border-radius: 0px;
+  box-shadow: none;
+  margin-bottom: 22px;
+  transition: all 0.4s ease-in-out;
+  padding: 10px;
+  height: auto;
+}
+
+#wrong input[type="submit"] {
+  background: #000000;
+  border:none;
+  border-radius: 4px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  height: 50px;
+  margin-top: 10px;
+}
+
+#wrong input[type="submit"]:hover {
+  background: #ffa400;
+
+}
+
+.form-control::-moz-placeholder {
+  color: #ffffff;
+  opacity: 1;
+}
+.form-control:-ms-input-placeholder {
+  color: #ffffff;
+}
+.form-control::-webkit-input-placeholder {
+  color: #ffffff;
+}
+
+#wrong .wrong-detail {
+  background: rgba(255,50,50,0.75);
+  padding: 34px 10px 34px 60px;
+}
+
+
+#wrong .wrong-detail div {
+  padding-bottom: 10px;
+
+}
+

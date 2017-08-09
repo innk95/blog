@@ -10,6 +10,7 @@ from .forms import RegistrationForm, EditProfileForm, WritePostForm, WriteEmailF
 from django.contrib.auth import update_session_auth_hash
 from django.views.generic import TemplateView
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -27,14 +28,12 @@ class WriteEmailView(TemplateView):
         form = WriteEmailForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.user = request.user
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
-            subject = form.cleaned_data['subject']
             post.save()
             return redirect('/blogapp/thanks/')
+        return redirect('/blogapp/wrong-email/')
 
 
+@login_required
 def detail(request, post_id):
     post_list = Post.objects.all()
     post_take = int(post_id)
@@ -47,7 +46,7 @@ class WritePostView(TemplateView):
 
     def get(self, request):
         form = WritePostForm()
-        return render (request, self.template_name, {'form' : form})
+        return render(request, self.template_name, {'form': form})
 
     def post(self, request):
         form = WritePostForm(request.POST)
@@ -59,9 +58,9 @@ class WritePostView(TemplateView):
             image_url = form.cleaned_data['image_url']
             post.post_pub_date = timezone.now()
             post.save()
-            context = {'form':form, 'header': header, 'post_text': post_text, 'image_url': image_url}
+            context = {'form': form, 'header': header, 'post_text': post_text, 'image_url': image_url}
             return redirect('/blogapp/#about')
-
+        return redirect('/blogapp/wrong-post')
 
 
 def post_new(request):
@@ -73,17 +72,20 @@ def register(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('../')
+            return redirect('/blogapp/login')
+        return redirect('/blogapp/wrong-register')
     else:
         form = RegistrationForm()
         return render(request, 'blogapp/reg_form.html', {'form': form})
 
 
+@login_required
 def profile(request):
     context = {'user': request.user}
     return render(request, 'blogapp/profile.html', context)
 
 
+@login_required
 def profile_edit(request):
     if request.method == 'POST':
         form = EditProfileForm(request.POST, instance=request.user)
@@ -99,6 +101,7 @@ def profile_edit(request):
         return render(request, 'blogapp/edit_profile.html', context)
 
 
+@login_required
 def change_password(request):
     if request.method == 'POST':
         form = PasswordChangeForm(data=request.POST, user=request.user)
@@ -113,6 +116,19 @@ def change_password(request):
         context = {'form': form}
         return render(request, 'blogapp/change_password.html', context)
 
+
 def thanks(request):
     return render(request, 'blogapp/thanks.html')
 
+
+def wrong_email(request):
+    return render(request, 'blogapp/wrong_email.html')
+
+
+@login_required
+def wrong_post(request):
+    return render(request, 'blogapp/wrong_post.html')
+
+
+def wrong_register(request):
+    return render(request, 'blogapp/wrong_register.html')
