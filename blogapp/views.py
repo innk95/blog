@@ -6,18 +6,33 @@ from django.shortcuts import render, redirect
 from .models import Post
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.models import User
-from .forms import RegistrationForm, EditProfileForm, WritePostForm
+from .forms import RegistrationForm, EditProfileForm, WritePostForm, WriteEmailForm
 from django.contrib.auth import update_session_auth_hash
 from django.views.generic import TemplateView
 from django.utils import timezone
 
 
 # Create your views here.
-def index(request):
-    latest_post_list = Post.objects.order_by('-post_pub_date')[:10]
-    context = {'latest_post_list': latest_post_list}
-    return render(request, 'blogapp/index.html', context)
 
+class WriteEmailView(TemplateView):
+    template_name = 'blogapp/index.html'
+
+    def get(self, request):
+        form = WriteEmailForm()
+        latest_post_list = Post.objects.order_by('-post_pub_date')[:10]
+        context = {'latest_post_list': latest_post_list, 'form': form}
+        return render(request, 'blogapp/index.html', context)
+
+    def post(self, request):
+        form = WriteEmailForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            subject = form.cleaned_data['subject']
+            post.save()
+            return redirect('/blogapp/thanks/')
 
 
 def detail(request, post_id):
@@ -97,4 +112,7 @@ def change_password(request):
         form = PasswordChangeForm(user=request.user)
         context = {'form': form}
         return render(request, 'blogapp/change_password.html', context)
+
+def thanks(request):
+    return render(request, 'blogapp/thanks.html')
 

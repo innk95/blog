@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import Post
+from .models import Post, MyEmail
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -65,7 +65,43 @@ class WritePostForm(forms.ModelForm):
             'post_text',
         }
 
-    
+class WriteEmailForm(forms.ModelForm):
+    name = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'class': 'form-control',
+            'id': 'name',
+        }
+    ))
+
+    email = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'class': 'form-control',
+            'id': 'email',
+        }
+    ))
+    subject = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'class': 'form-control',
+            'id': 'subject',
+        }
+    ))
+
+    message = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'class': 'form-control',
+            'id': 'message',
+            'rows': 8,
+        }
+    ))
+
+    class Meta:
+        model = MyEmail
+        fields={
+            'name',
+            'email',
+            'subject',
+            'message'
+        }
 
 
 
