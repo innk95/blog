@@ -1,0 +1,65 @@
+{% extends 'blogapp/base.html' %}
+{% block content %}
+	{% load static %}
+
+<section id="profile" class="parallax-section">
+	<div class="container">
+		<div class="row">
+
+			    <div class="wow fadeInUp" data-wow-delay="0.3s">
+				    <div class="profile-detail">
+                        <div class="col-lg-4">
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+					        <h2>Вадим Петров</h2>
+                            <img src="{%static 'blogapp/images/me.jpg' %}" id="me_photo">
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <pre>
+
+       Личные данные            Дата Рождения: 16.01.1995
+                                Семейное положение: Холост
+
+       Контактная Информация    Телефон: +7(999)977-66-92
+                                E-mail: PetrovVadimAnd@gmail.com
+                                Skype: vaim2008
+                                VK: <a href="https://vk.com/innk95">innk95</a>
+
+       Цель:                    Устроиться на интересную, хорошо оплачиваемую и
+                                перспективную работу в IT-сфере, связанную с
+                                разработкой сайтов (Backend).
+
+       Образование:             2013-2017 - РГУ Нефти и Газа им. И.М.Губкина
+                                спец. Автоматизация Систем Управления.
+
+       Навыки:                  Языки Программирования:
+                                    Python (активное изучение)
+                                    Delphi (университетская программа)
+                                    PHP (дипломный проект)
+                                    JavaScript (простые скрипты для сайта)
+                                Базы данных:
+                                    MySQL (запросы, индексы)
+                                Фреймворки:
+                                    Django(активное изучение)
+                                    Bootstrap(адаптивная верстка)
+                                Github:
+                                    <a>https://github.com/innk95</a>
+                                Остальное:
+                                    Linux, Git, MacOS, HTTP, SQL, HTML, CSS, jQuery, Unix
+                        </pre>
+
+
+                    </div>
+
+			</div>
+        </div>
+
+	</div>
+</section>
+
+{% endblock content %}

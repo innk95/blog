@@ -41,19 +41,22 @@ class EditProfileForm(UserChangeForm):
 class WritePostForm(forms.ModelForm):
     header = forms.CharField(widget=forms.TextInput(
         attrs={
-            'class': 'form-control'
+            'class': 'form-control',
+            'placeholder': 'Header',
         }
     ))
 
     image_url = forms.CharField(widget=forms.TextInput(
         attrs={
-            'class': 'form-control'
+            'class': 'form-control',
+            'placeholder': 'Image URL',
         }
     ))
 
     post_text = forms.CharField(widget=forms.TextInput(
         attrs={
-            'class': 'form-control'
+            'class': 'form-control',
+            'placeholder': 'Text',
         }
     ))
 
@@ -70,6 +73,7 @@ class WriteEmailForm(forms.ModelForm):
         attrs={
             'class': 'form-control',
             'id': 'name',
+            'placeholder': 'Name',
         }
     ))
 
@@ -77,12 +81,14 @@ class WriteEmailForm(forms.ModelForm):
         attrs={
             'class': 'form-control',
             'id': 'email',
+            'placeholder': 'Email',
         }
     ))
     subject = forms.CharField(widget=forms.TextInput(
         attrs={
             'class': 'form-control',
             'id': 'subject',
+            'placeholder': 'Subject',
         }
     ))
 
@@ -90,7 +96,7 @@ class WriteEmailForm(forms.ModelForm):
         attrs={
             'class': 'form-control',
             'id': 'message',
-            'rows': '8',
+            'placeholder': 'Message',
         }
     ))
     class Meta:

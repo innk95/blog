@@ -10,7 +10,7 @@ from django import forms
 # Create your models here.
 class Post(models.Model):
     user = models.ForeignKey(User, related_name='User', null=True)
-    header = models.CharField(max_length=20)
+    header = models.CharField(max_length=200)
     post_text = models.CharField(max_length=1000)
     post_pub_date = models.DateTimeField('date published')
     image_url = models.CharField(max_length=200, default='/static/blogapp/downloads/default.png')

@@ -52,13 +52,8 @@ class WritePostView(TemplateView):
         form = WritePostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.user = request.user
-            header = form.cleaned_data['header']
-            post_text = form.cleaned_data['post_text']
-            image_url = form.cleaned_data['image_url']
             post.post_pub_date = timezone.now()
             post.save()
-            context = {'form': form, 'header': header, 'post_text': post_text, 'image_url': image_url}
             return redirect('/blogapp/#about')
         return redirect('/blogapp/wrong-post')
 
@@ -132,3 +127,6 @@ def wrong_post(request):
 
 def wrong_register(request):
     return render(request, 'blogapp/wrong_register.html')
+
+def vadimpetrov(request):
+    return render(request, 'blogapp/vadimpetrov.html')

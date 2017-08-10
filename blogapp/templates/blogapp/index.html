@@ -67,6 +67,7 @@
 		</div>
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right main-navigation">
+				<li><a href="/blogapp/VadimPetrov/" class="smoothScroll btn btn-info">ADMIN Profile</a></li>
 				<li><a href="#home" class="smoothScroll">HOME</a></li>
 				<li><a href="#about" class="smoothScroll">BLOG</a></li>
 				<li><a href="#contact" class="smoothScroll">CONTACT</a></li>
@@ -92,6 +93,7 @@
 		</div>
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right main-navigation">
+				<li><a href="/blogapp/VadimPetrov/" class="smoothScroll btn btn-info" >ADMIN Profile</a></li>
 				<li><a href="#home" class="smoothScroll">HOME</a></li>
 				<li><a href="#about" class="smoothScroll">BLOG</a></li>
 				<li><a href="#contact" class="smoothScroll">CONTACT</a></li>
@@ -109,6 +111,7 @@
 <!-- about section
 ================================================== -->
 {% if latest_post_list %}
+
 <section id="about" class="paralla-section">
 	<div class="container">
 
@@ -123,8 +126,12 @@
             
 			<div class="col-md-6 col-sm-12">
 				<div class="about-des">
-					<h4>{{post.post_pub_date}}</h4>
+					<legend><h6>{{post.post_pub_date}}</h6></legend>
+					{% if user.is_authenticated %}
 					<a href="{{ post.id }}"><h3>{{ post.header }}</h3></a>
+					{% else %}
+					<a href="/blogapp/login"><h3>{{ post.header }}</h3></a>
+					{% endif %}
 					<p>{{post.post_text}}</p>
 				</div>
 			</div>
@@ -151,16 +158,16 @@
 		<div class="row">
 
 			<div class="col-md-4 col-sm-4 counter-item">
-				<h3 class="counter-number" data-from="1" data-to="256" data-speed="1000"></h3>
+				<h3 class="counter-number" data-from="1" data-to="4" data-speed="3000"></h3>
 				<span class="counter-text">POSTS</span>
             </div> 
             <div class="col-md-4 col-sm-4 counter-item">
-				<h3 class="counter-number" data-from="1" data-to="512" data-speed="2000"></h3>
+				<h3 class="counter-number" data-from="1" data-to="14" data-speed="3000"></h3>
 				<span class="counter-text">USERS</span>
             </div>   
             <div class="col-md-4 col-sm-4 counter-item">
-				<h3 class="counter-number" data-from="1" data-to="1024" data-speed="3000"></h3>
-				<span class="counter-text">LIKES</span>
+				<h3 class="counter-number" data-from="1" data-to="7" data-speed="3000"></h3>
+				<span class="counter-text">Messages</span>
             </div> 
 
               
@@ -185,7 +192,10 @@
 				<form action="#" method="post">
 					<div class="col-md-12 col-sm-12" style="color:white" id="email">
 						{% csrf_token %}
-						{{form.as_p}}
+						{{form.name}}
+						{{form.email}}
+						{{form.subject}}
+						{{form.message}}
 
 					</div>
 					<div class="col-md-6 col-sm-6">
@@ -196,7 +206,7 @@
 
 			<!-- Contact detail section
 			================================================== -->
-			<div class="col-md-6 col-sm-6 wow fadeInUp" data-wow-delay="0.9s">
+			<div class="col-md-6 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
 				<div class="contact-detail">
 					<h2>CONTACT ME</h2>
 						<div>
@@ -212,8 +222,12 @@
 
 		</div>
 	</div>
+	<br>
+	<br>
+	<br>
+	<br>
 </section>
-<br>
+
 
 
 <!-- Javascript 
